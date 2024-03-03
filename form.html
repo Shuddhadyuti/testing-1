@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esports Team Selection</title>
+<style>
+    /* Some basic styling */
+    body {
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        text-align: center;
+    }
+    #team-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    #team-list li {
+        margin-bottom: 5px;
+    }
+</style>
+</head>
+<body>
+<h1>Esports Team Selection</h1>
+
+<div>
+    <label for="player-name">Player Name:</label>
+    <input type="text" id="player-name">
+    <button onclick="addPlayer()">Add Player</button>
+</div>
+
+<ul id="team-list">
+    <!-- This list will be populated dynamically -->
+</ul>
+
+<script>
+    // Function to add a player to the team list
+    function addPlayer() {
+        var playerNameInput = document.getElementById("player-name");
+        var playerName = playerNameInput.value;
+
+        if (playerName.trim() === "") {
+            alert("Please enter a player name");
+            return;
+        }
+
+        var teamList = document.getElementById("team-list");
+        var listItem = document.createElement("li");
+        listItem.textContent = playerName;
+        teamList.appendChild(listItem);
+
+        playerNameInput.value = "";
+    }
+</script>
+</body>
+</html>
